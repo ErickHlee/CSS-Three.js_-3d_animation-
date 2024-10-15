@@ -6,15 +6,16 @@ Index:
 2) Estilizando no CSS
 3) Configuração JavaScript
 4) Configuração da animação
-====
-# Aviso!
+----
+
+# Aviso! 
 # Para o funcionamento do modelo3D, é necessário usar o LiveServer. Sem o uso do LiveServer, o modelo não vai aparecer.
 
-1) Baixando o modelo 3D:
+# 1) Baixando o modelo 3D:
 URL para baixar o modelo: https://sketchfab.com/feed
 > Recomendado baixar modelos que tenham animações
 
-2) Estilizando no CSS:
+# 2) Estilizando no CSS:
 Dentro do HTML, precisa criar um div com a nomeclatura da sua preferência. Em seguida, o link do javascript
 ``` html
 <div id="container3D"></div>
@@ -31,10 +32,9 @@ Dentro do HTML, precisa criar um div com a nomeclatura da sua preferência. Em s
 }
 ```
 
-3) Configuração JavaScript;
-URL para saber mais sobre Three.js: https://www.skypack.dev/view/three / https://www.skypack.dev/docs
-
-E para a configuração do modelo 3D, basta acessar o 'script.js'. Os códigos foram comentados para o melhor entendimento de cada elemento.
+# 3) Configuração JavaScript;
+> URL para saber mais sobre Three.js: https://www.skypack.dev/view/three / https://www.skypack.dev/docs
+> E para a configuração do modelo 3D, basta acessar o 'script.js'. Os códigos foram comentados para o melhor entendimento de cada elemento.
 ----
 1) Importando as bibliotecas:
     ```js
@@ -104,7 +104,8 @@ E para a configuração do modelo 3D, basta acessar o 'script.js'. Os códigos f
     // mixer.update(0.02);
     // };
     ```
-
+# 4) Configuração da animação:
+----
 6) Mudando a posição do modelo:
     ```js
     // Apenas fazer a modificação com o código novo dentro da 'function (gltf)'
@@ -216,5 +217,4 @@ E para a configuração do modelo 3D, basta acessar o 'script.js'. Os códigos f
         modelMove();
     }
     }); 
-
     ```
