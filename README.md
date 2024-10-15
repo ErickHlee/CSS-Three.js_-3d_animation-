@@ -12,9 +12,11 @@ URL para baixar o modelo: https://sketchfab.com/feed
 
 2) Estilizando no CSS:
 Dentro do HTML, precisa criar um div com a nomeclatura da sua preferência. Em seguida, o link do javascript
-# Meu caso: 
-# <div id="container3D"></div>
-# <script type="module" src="script.js"></script>
+Meu caso:
+```
+<div id="container3D"></div>
+<script type="module" src="script.js"></script>
+```
 
 ```CSS
 #container3D {
