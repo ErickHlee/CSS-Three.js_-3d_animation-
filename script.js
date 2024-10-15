@@ -2,7 +2,7 @@ import * as THREE from 'https://cdn.skypack.dev./three@0.129.0/build/three.modul
 import { GLTFLoader } from 'https://cdn.skypack.dev/three@0.129.0/examples/jsm/loaders/GLTFLoader.js';
 
 const camera = new THREE.PerspectiveCamera(
-    10, // O ângulo da visãoem perspectiva X, Y e Z
+    10, // O ângulo da visão em perspectiva X, Y e Z
     window.innerWidth / window.innerHeight, // O tamanho do elemento na sua tela
     0.1, // A distância mais próxima na sua tela
     1000  // A distância mais afastada da sua tela
@@ -12,10 +12,12 @@ camera.position.z = 13; // Movimentando a distância do NOSSO olhar em relação
 
 const scene = new THREE.Scene();
 let bee;
-const leader = new GLTFLoader();
+const loader = new GLTFLoader();
 loader.load('/demon_bee_full_texture.glb', //carregue a imagem que você baixou
     function (gltf) {  // A função vai ativar o carregamento der certo
         bee = gltf.scene; // a variável 'bee' vai pegar todas as informações do 'bee' e colocar dentro do '.scene'
+        bee.position.y = -1;
+        bee.rotation.y = 1.5;
         scene.add(bee); // Como explicado antes, a '.scene' é onde vai estar armazenado todas as informações do modelo 3D para aparecer na tela
     },
     function (xhr) {}, // A função vai ativar após o carregamento, que tem a responsabilidade de deixar o bee funcionando
@@ -24,7 +26,7 @@ loader.load('/demon_bee_full_texture.glb', //carregue a imagem que você baixou
 // Agora que configuramos o '.scene' para que o 'bee' apareça, vamos desenhar fisicamente.
 const renderer = new THREE.WebGLRenderer({alpha: true}); //pegamos a API para desenhar
 // Depois de testar se o site está funcionando, você vai perceber que a tela do site vai estar preto, isso acontece por que o 'background-color' está preto por natural, para tirar isso, coloque '{alpha: true}'
-renderer.setsize(window.innerWidth, window.innerHeight); // Determinando o tamanho do desenho
+renderer.setSize(window.innerWidth, window.innerHeight); // Determinando o tamanho do desenho
 document.getElementById('container3D').appendChild(renderer.domElement); //Colocando dentro da div 'container3D'
 // Com isso, já podemos verificar se algo já está funcionando, claro que o código não está 100%
 
@@ -40,3 +42,16 @@ const reRender3D = () => {
     renderer.render(scene, camera);
 };
 reRender3D();
+
+// Se você fez o código até aqui e a imagem da abelha (escura) apareceu no site, você está indo no caminho certo! Só precisamos colocar iluminação
+
+const ambientLight = new THREE.AmbientLight(0xffffff, 1.3)
+// > .AmbientLight(A cor da luz, a intensidade da luz)
+scene.add(ambientLight);
+
+const topLight = new THREE.DirectionalLight(0xffffff, 1); // Direcionamento da luz como a iluminação do sol
+topLight.position.set(500, 500, 500);
+scene.add(topLight);
+
+// -> Configurando a posição do bee no function (gltf)
+
