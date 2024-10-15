@@ -5,16 +5,18 @@ Index:
 2) Estilizando no CSS
 3) Configuração JavaScript
 4) Configuração da animação
-
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
 1) Baixando o modelo 3D:
 URL para baixar o modelo: https://sketchfab.com/feed
-# Recomendado baixar modelos que tenham animações
+> Recomendado baixar modelos que tenham animações
 
 2) Estilizando no CSS:
 Dentro do HTML, precisa criar um div com a nomeclatura da sua preferência. Em seguida, o link do javascript
-# Meu caso: 
-# <div id="container3D"></div>
-# <script type="module" src="script.js"></script>
+# Meu caso:
+``` html
+<div id="container3D"></div>
+<script type="module" src="script.js"></script>
+```
 
 ```CSS
 #container3D {
